@@ -1,7 +1,11 @@
 <template>
   <b-form class="p-4 bg-light h-100" @submit="submitHandler">
     <h3 class="h5 mb-5 heading-tertiary">
-      <img src="../assets/icons/map-48.png" class="icon-map" alt="Map icon" />
+      <img
+        src="../assets/icons/timezone-48.png"
+        class="icon-map"
+        alt="Map icon"
+      />
       Insira o destino e o peso
     </h3>
 
@@ -14,8 +18,8 @@
       <b-form-select
         id="destino"
         required
-        v-model="estadoSelected"
-        :options="estados"
+        v-model="cidadeSelected"
+        :options="cidades"
       />
     </b-form-group>
 
@@ -54,12 +58,19 @@ export default {
   data() {
     return {
       peso: 0,
-      estadoSelected: null,
-      estados: [
+      cidadeSelected: null,
+      cidades: [
         { text: "Selecione o Destino", value: null },
+        "Belo Horizonte",
         "Campinas",
-        "São Paulo",
-        "Limeira"
+        "Curitiba",
+        "Fortaleza",
+        "Manaus",
+        "Natal",
+        "Recife",
+        "Rio de Janeiro",
+        "Salvador",
+        "São Paulo"
       ]
     };
   },
@@ -68,7 +79,7 @@ export default {
       evt.preventDefault();
       this.$emit("formSubmit", {
         peso: this.peso,
-        estado: this.estadoSelected
+        cidade: this.cidadeSelected
       });
     }
   }
