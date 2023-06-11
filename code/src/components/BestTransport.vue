@@ -51,6 +51,7 @@
         </b-row>
       </b-container>
     </b-card>
+    <ErrorModal />
   </section>
 </template>
 
@@ -59,6 +60,7 @@ import { BNavbar, BNavbarBrand, BCard } from "bootstrap-vue";
 
 import BestTransportForm from "./BestTransportForm";
 import BestTransportCard from "./BestTransportCard";
+import ErrorModal from "./modal/ErrorModal";
 
 export default {
   components: {
@@ -66,7 +68,8 @@ export default {
     BNavbarBrand,
     BCard,
     BestTransportForm,
-    BestTransportCard
+    BestTransportCard,
+    ErrorModal
   },
   data() {
     const appName = "";
@@ -95,6 +98,14 @@ export default {
       const cotacoesDaCidade = this.cotacoes.filter(cota => {
         return cota.city.toLowerCase() === evt.cidade.toLowerCase();
       });
+
+      console.log(evt.peso);
+      console.log(typeof evt.cidade);
+
+      if (evt.peso === 0 || evt.city === "") {
+        this.$bvModal.show("modal-1");
+        return;
+      }
 
       this.getFreteEconomico(evt.peso, cotacoesDaCidade);
       this.getFreteMaisRapido(evt.peso, cotacoesDaCidade);
