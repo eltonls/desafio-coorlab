@@ -24,7 +24,13 @@
     </b-form-group>
 
     <b-form-group id="peso-group" label="Peso:" label-for="peso" class="mb-5">
-      <b-form-input v-model="peso" id="peso" required />
+      <b-form-input
+        v-model="peso"
+        id="peso"
+        type="text"
+        placeholder="Insira o peso em KG"
+        required
+      />
     </b-form-group>
 
     <b-form-group class="text-center">

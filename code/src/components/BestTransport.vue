@@ -51,7 +51,7 @@
         </b-row>
       </b-container>
     </b-card>
-    <ErrorModal />
+    <ErrorModal errorMsg="Insira os valores para realizar a análise" />
   </section>
 </template>
 
@@ -95,20 +95,20 @@ export default {
   methods: {
     // Implemente aqui os metodos utilizados na pagina
     submitFormHandler(evt) {
+      const regexKG =
+        /(^(0|[1-9]\d*)(,\d+)?(kg)$)|(^(0|[1-9]\d*)(,\d+)?$)|^(0|[1-9]\d*)(,\d+)?(KG)$/;
+
       const cotacoesDaCidade = this.cotacoes.filter(cota => {
         return cota.city.toLowerCase() === evt.cidade.toLowerCase();
       });
 
-      console.log(evt.peso);
-      console.log(typeof evt.cidade);
-
-      if (evt.peso === 0 || evt.city === "") {
+      if (!evt.peso.match(regexKG)) {
         this.$bvModal.show("modal-1");
         return;
       }
 
-      this.getFreteEconomico(evt.peso, cotacoesDaCidade);
-      this.getFreteMaisRapido(evt.peso, cotacoesDaCidade);
+      this.getFreteEconomico(evt.peso.replace(/\D/g, ""), cotacoesDaCidade);
+      this.getFreteMaisRapido(evt.peso.replace(/\D/g, ""), cotacoesDaCidade);
     },
     getMenorFreteLeve(cotacoes) {
       let cotaMenorPreco = cotacoes[0];
