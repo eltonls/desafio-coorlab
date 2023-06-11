@@ -8,7 +8,7 @@
           class="mb-4"
         />
         <h5 class="font-weight-normal mb-4">
-          Insira os valores para realizar a análise
+          {{ this.errorMsg }}
         </h5>
 
         <b-button variant="secondary" @click="this.closeModal">Fechar</b-button>
@@ -23,6 +23,9 @@ export default {
   components: {
     BModal,
     BButton
+  },
+  props: {
+    errorMsg: String
   },
   methods: {
     closeModal() {
