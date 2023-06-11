@@ -20,25 +20,33 @@
           <b-col cols="4">
             <BestTransportForm @formSubmit="submitFormHandler" />
           </b-col>
-          <b-col cols="8" class="px-2 py-5">
-            <h3 class="h5 font-weight-normal">
-              Estas são as melhores alternativas de frete que encontramos para
-              você
-            </h3>
-            <BestTransportCard
-              :isDarker="true"
-              :cota="this.cotaDeMenorPreco"
-              iconSrc="receive-cash-64.png"
-              cardTitle="Frete com menor valor"
-              :preco="this.precoCotaEconomica"
-            />
-            <BestTransportCard
-              :isDarker="false"
-              :cota="this.cotaMaisRapida"
-              iconSrc="clock-48.png"
-              cardTitle="Frete mais rápido"
-              :preco="this.PrecoCotaRapida"
-            />
+          <b-col
+            cols="8"
+            class="px-2 py-5 d-flex justify-content-center align-items-center"
+          >
+            <div v-if="this.cotaDeMenorPreco">
+              <h3 class="h5 font-weight-normal">
+                Estas são as melhores alternativas de frete que encontramos para
+                você
+              </h3>
+              <BestTransportCard
+                :isDarker="true"
+                :cota="this.cotaDeMenorPreco"
+                iconSrc="receive-cash-64.png"
+                cardTitle="Frete com menor valor"
+                :preco="this.precoCotaEconomica"
+              />
+              <BestTransportCard
+                :isDarker="false"
+                :cota="this.cotaMaisRapida"
+                iconSrc="clock-48.png"
+                cardTitle="Frete mais rápido"
+                :preco="this.PrecoCotaRapida"
+              />
+            </div>
+            <div v-if="!this.cotaDeMenorPreco" class="d-flex">
+              <h3 class="h5 font-weight-normal">Nenhum dado selecionado</h3>
+            </div>
           </b-col>
         </b-row>
       </b-container>
@@ -66,8 +74,8 @@ export default {
     return {
       appName,
       cotacoes: null,
-      cotaDeMenorPreco: {},
-      cotaMaisRapida: {},
+      cotaDeMenorPreco: null,
+      cotaMaisRapida: null,
       precoCotaEconomica: 0,
       PrecoCotaRapida: 0
     };
