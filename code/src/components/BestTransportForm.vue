@@ -9,12 +9,8 @@
       Insira o destino e o peso
     </h3>
 
-    <b-form-group
-      id="destino-group"
-      label="Destino:"
-      label-for="destino"
-      class="mb-3"
-    >
+    <b-form-group id="destino-group" class="mb-3">
+      <label for="destino" class="font-weight-bolder">Destino</label>
       <b-form-select
         id="destino"
         required
@@ -23,7 +19,8 @@
       />
     </b-form-group>
 
-    <b-form-group id="peso-group" label="Peso:" label-for="peso" class="mb-5">
+    <b-form-group id="peso-group" class="mb-5">
+      <label for="destino" class="font-weight-bolder">Peso</label>
       <b-form-input
         v-model="peso"
         id="peso"
