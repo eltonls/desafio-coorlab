@@ -7,8 +7,8 @@
         type="light"
         variant="secondary"
       >
-        <b-navbar-brand class="ml-2">
-          <img src="../assets/logo.png" class="logo" alt="" />
+        <b-navbar-brand class="ml-2 d-flex align-items-baseline">
+          <img src="../assets/icons/truck-50.png" class="logo" alt="" />
           <b>{{ appName }}</b>
         </b-navbar-brand>
       </b-navbar>
