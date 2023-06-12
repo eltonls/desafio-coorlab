@@ -26,6 +26,7 @@ body {
 
 .btn {
   font-weight: 600;
+  padding: 0.45rem 2rem;
 }
 
 .header {

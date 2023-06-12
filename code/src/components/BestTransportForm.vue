@@ -34,7 +34,7 @@
     </b-form-group>
 
     <b-form-group class="text-center">
-      <b-button class="btn px-5" variant="secondary" type="submit"
+      <b-button class="btn" variant="secondary" type="submit"
         >Analisar</b-button
       >
     </b-form-group>

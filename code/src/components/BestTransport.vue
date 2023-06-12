@@ -14,7 +14,7 @@
       </b-navbar>
     </div>
 
-    <b-card class="p-0 h-99 rounded-bottom">
+    <b-card class="p-0 h-99 max-height-99 rounded-bottom">
       <b-container class="m-0 p-0">
         <b-row no-gutters>
           <b-col cols="4">
@@ -22,7 +22,7 @@
           </b-col>
           <b-col
             cols="8"
-            class="px-2 py-5 d-flex justify-content-center align-items-center"
+            class="px-2 d-flex justify-content-center align-items-center"
           >
             <div v-if="this.cotaDeMenorPreco">
               <h3 class="h5 font-weight-normal">
@@ -43,6 +43,11 @@
                 cardTitle="Frete mais rápido"
                 :preco="this.PrecoCotaRapida"
               />
+              <div class="w-100 text-right mt-2">
+                <b-button variant="secondary" @click="this.clean" class="px-5"
+                  >Limpar</b-button
+                >
+              </div>
             </div>
             <div v-if="!this.cotaDeMenorPreco" class="d-flex">
               <h3 class="h5 font-weight-normal">Nenhum dado selecionado</h3>
@@ -169,6 +174,12 @@ export default {
 
         this.PrecoCotaRapida = this.getPrecoFrete(peso, custoLeve);
       }
+    },
+    clean() {
+      this.cotaDeMenorPreco = null;
+      this.cotaMaisRapida = null;
+      this.precoCotaEconomica = null;
+      this.PrecoCotaRapida = null;
     }
   }
 };
