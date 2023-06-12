@@ -1,7 +1,7 @@
 <template>
   <b-container class="p-0 mb-2">
     <b-row>
-      <b-col cols="8">
+      <b-col md="8" cols="12" class="mb-2">
         <b-card no-body class="overflow-hidden">
           <b-row no-gutters>
             <b-col
@@ -22,7 +22,7 @@
           </b-row>
         </b-card>
       </b-col>
-      <b-col cols="4" class="h-20 p-0">
+      <b-col md="4" cols="12" class="h-20">
         <b-card
           title="Preço"
           class="h-100"

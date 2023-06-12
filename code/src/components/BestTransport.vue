@@ -17,12 +17,13 @@
     <b-card class="p-0 h-99 max-height-99 rounded-bottom">
       <b-container class="m-0 p-0">
         <b-row no-gutters>
-          <b-col cols="4">
+          <b-col cols="12" md="4">
             <BestTransportForm @formSubmit="submitFormHandler" />
           </b-col>
           <b-col
-            cols="8"
-            class="px-2 d-flex justify-content-center align-items-center"
+            cols="12"
+            md="8"
+            class="px-2 d-flex justify-content-center align-items-center my-2"
           >
             <div v-if="this.cotaDeMenorPreco">
               <h3 class="h5 font-weight-normal">
@@ -44,7 +45,7 @@
                 :preco="this.PrecoCotaRapida"
               />
               <div class="w-100 text-right mt-2">
-                <b-button variant="secondary" @click="this.clean" class="px-5"
+                <b-button variant="secondary" @click="this.clean"
                   >Limpar</b-button
                 >
               </div>
